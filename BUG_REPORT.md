@@ -102,47 +102,6 @@ Post → (relation) → Post (self-reference detected as cycle)
 
 The topological sort algorithm detects this as a cycle and fails, even though self-referential relations are valid and should be handled specially (similar to how they work for regular models).
 
-### Workarounds (with limitations)
-
-#### Option 1: Move the relation to the base class
-```zmodel
-model Content {
-    id       Int         @id @default(autoincrement())
-    type     ContentType
-    replies  Content[]   @relation("ContentReplies")
-    parentId Int?
-    parent   Content?    @relation("ContentReplies", fields: [parentId], references: [id])
-    @@delegate(type)
-}
-
-model Post extends Content {
-    post1s Post1[]
-}
-```
-**Limitation**: This forces ALL content types to have the reply relationship, which may not be desired architecturally.
-
-#### Option 2: Remove inheritance
-```zmodel
-model Post {
-    id       Int         @id @default(autoincrement())
-    type     ContentType
-    replies  Post[]
-    parentId Int?
-    parent   Post?       @relation("PostReplies", fields: [parentId], references: [id])
-    post1s   Post1[]
-}
-```
-**Limitation**: Loses the polymorphism benefits of `@@delegate` (the entire point of using it).
-
-### Suggested Fix
-
-The dependency resolver should:
-1. Detect self-referential relations (where the relation target is the same model)
-2. Exclude them from cross-model dependency analysis
-3. Only apply topological sort dependencies to relations between **different** models
-
-This would allow `@@delegate` models to have self-referential relations without triggering the cyclic dependency error, matching the behavior of regular models.
-
 ### Impact
 
 This is a significant limitation that blocks common use cases:
