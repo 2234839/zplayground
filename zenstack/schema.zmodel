@@ -1,0 +1,13 @@
+// This is a sample model to get you started.
+
+/// A sample data source using local sqlite db.
+datasource db {
+    provider = 'sqlite'
+    url = 'file:./dev.db'
+}
+
+/// User model
+model User {
+    id       String @id @default(cuid())
+}
+

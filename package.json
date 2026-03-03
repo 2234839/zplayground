@@ -1,0 +1,21 @@
+{
+  "name": "json-server-starter",
+  "private": true,
+  "scripts": {
+    "dev": "tsx --watch app.ts",
+    "zen:gen": "pnpm zen generate",
+    "zen:dev": "zen migrate dev"
+  },
+  "engines": {
+    "node": "22.x"
+  },
+  "dependencies": {
+    "sql.js": "^1.14.0",
+    "tsx": "^4.21.0"
+  },
+  "devDependencies": {
+    "@zenstackhq/cli": "^3.4.2",
+    "@zenstackhq/orm": "^3.4.2",
+    "typescript": "5.2.2"
+  }
+}
