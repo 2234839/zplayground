@@ -15,7 +15,7 @@ Self-referential relations are a common and essential pattern in database modeli
 ## Environment (please complete the following information)
 
 - **ZenStack version**: 3.4.2
-- **Database type**: SQLite (reproduces with PostgreSQL, MySQL, etc.)
+- **Database type**: SQLite (sql.js v1.14.0)
 - **Node.js version**: v24.3.0
 - **Package manager**: pnpm
 
