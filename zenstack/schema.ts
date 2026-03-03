@@ -76,27 +76,27 @@ export class SchemaType implements SchemaDef {
                     array: true,
                     relation: { opposite: "post" }
                 },
-                parentId: {
-                    name: "parentId",
-                    type: "Int",
-                    optional: true,
-                    foreignKeyFor: [
-                        "parentPost"
-                    ]
-                },
-                parentPost: {
-                    name: "parentPost",
-                    type: "Post",
-                    optional: true,
-                    attributes: [{ name: "@relation", args: [{ name: "name", value: ExpressionUtils.literal("PostReplies") }, { name: "fields", value: ExpressionUtils.array("Int", [ExpressionUtils.field("parentId")]) }, { name: "references", value: ExpressionUtils.array("Int", [ExpressionUtils.field("id")]) }] }],
-                    relation: { opposite: "replies", name: "PostReplies", fields: ["parentId"], references: ["id"] }
-                },
                 replies: {
                     name: "replies",
                     type: "Post",
                     array: true,
                     attributes: [{ name: "@relation", args: [{ name: "name", value: ExpressionUtils.literal("PostReplies") }] }],
-                    relation: { opposite: "parentPost", name: "PostReplies" }
+                    relation: { opposite: "parent", name: "PostReplies" }
+                },
+                parentId: {
+                    name: "parentId",
+                    type: "Int",
+                    optional: true,
+                    foreignKeyFor: [
+                        "parent"
+                    ]
+                },
+                parent: {
+                    name: "parent",
+                    type: "Post",
+                    optional: true,
+                    attributes: [{ name: "@relation", args: [{ name: "name", value: ExpressionUtils.literal("PostReplies") }, { name: "fields", value: ExpressionUtils.array("Int", [ExpressionUtils.field("parentId")]) }, { name: "references", value: ExpressionUtils.array("Int", [ExpressionUtils.field("id")]) }] }],
+                    relation: { opposite: "replies", name: "PostReplies", fields: ["parentId"], references: ["id"] }
                 }
             },
             idFields: ["id"],
