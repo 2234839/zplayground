@@ -16,84 +16,138 @@ export class SchemaType implements SchemaDef {
             fields: {
                 id: {
                     name: "id",
-                    type: "String",
+                    type: "Int",
                     id: true,
-                    attributes: [{ name: "@id" }, { name: "@default", args: [{ name: "value", value: ExpressionUtils.call("cuid") }] }],
-                    default: ExpressionUtils.call("cuid")
-                },
-                email: {
-                    name: "email",
-                    type: "String",
-                    unique: true,
-                    attributes: [{ name: "@unique" }, { name: "@email" }, { name: "@length", args: [{ name: "min", value: ExpressionUtils.literal(6) }, { name: "max", value: ExpressionUtils.literal(32) }] }]
-                },
-                posts: {
-                    name: "posts",
-                    type: "Post",
-                    array: true,
-                    relation: { opposite: "author" }
+                    attributes: [{ name: "@id" }, { name: "@default", args: [{ name: "value", value: ExpressionUtils.call("autoincrement") }] }],
+                    default: ExpressionUtils.call("autoincrement")
                 }
             },
             idFields: ["id"],
             uniqueFields: {
-                id: { type: "String" },
-                email: { type: "String" }
+                id: { type: "Int" }
             }
         },
-        Post: {
-            name: "Post",
+        Content: {
+            name: "Content",
             fields: {
                 id: {
                     name: "id",
-                    type: "String",
+                    type: "Int",
                     id: true,
-                    attributes: [{ name: "@id" }, { name: "@default", args: [{ name: "value", value: ExpressionUtils.call("cuid") }] }],
-                    default: ExpressionUtils.call("cuid")
+                    attributes: [{ name: "@id" }, { name: "@default", args: [{ name: "value", value: ExpressionUtils.call("autoincrement") }] }],
+                    default: ExpressionUtils.call("autoincrement")
                 },
-                createdAt: {
-                    name: "createdAt",
-                    type: "DateTime",
-                    attributes: [{ name: "@default", args: [{ name: "value", value: ExpressionUtils.call("now") }] }],
-                    default: ExpressionUtils.call("now")
+                type: {
+                    name: "type",
+                    type: "ContentType",
+                    isDiscriminator: true
+                }
+            },
+            attributes: [
+                { name: "@@delegate", args: [{ name: "discriminator", value: ExpressionUtils.field("type") }] }
+            ],
+            idFields: ["id"],
+            uniqueFields: {
+                id: { type: "Int" }
+            },
+            isDelegate: true,
+            subModels: ["Post", "Post1"]
+        },
+        Post: {
+            name: "Post",
+            baseModel: "Content",
+            fields: {
+                id: {
+                    name: "id",
+                    type: "Int",
+                    id: true,
+                    attributes: [{ name: "@id" }, { name: "@default", args: [{ name: "value", value: ExpressionUtils.call("autoincrement") }] }],
+                    default: ExpressionUtils.call("autoincrement")
                 },
-                updatedAt: {
-                    name: "updatedAt",
-                    type: "DateTime",
-                    updatedAt: true,
-                    attributes: [{ name: "@updatedAt" }]
+                type: {
+                    name: "type",
+                    type: "ContentType",
+                    originModel: "Content",
+                    isDiscriminator: true
                 },
-                title: {
-                    name: "title",
-                    type: "String",
-                    attributes: [{ name: "@length", args: [{ name: "min", value: ExpressionUtils.literal(1) }, { name: "max", value: ExpressionUtils.literal(256) }] }]
+                post1s: {
+                    name: "post1s",
+                    type: "Post1",
+                    array: true,
+                    relation: { opposite: "post" }
                 },
-                content: {
-                    name: "content",
-                    type: "String"
-                },
-                published: {
-                    name: "published",
-                    type: "Boolean",
-                    attributes: [{ name: "@default", args: [{ name: "value", value: ExpressionUtils.literal(false) }] }],
-                    default: false
-                },
-                author: {
-                    name: "author",
-                    type: "User",
-                    attributes: [{ name: "@relation", args: [{ name: "fields", value: ExpressionUtils.array("String", [ExpressionUtils.field("authorId")]) }, { name: "references", value: ExpressionUtils.array("String", [ExpressionUtils.field("id")]) }, { name: "onDelete", value: ExpressionUtils.literal("Cascade") }] }],
-                    relation: { opposite: "posts", fields: ["authorId"], references: ["id"], onDelete: "Cascade" }
-                },
-                authorId: {
-                    name: "authorId",
-                    type: "String",
+                parentId: {
+                    name: "parentId",
+                    type: "Int",
+                    optional: true,
                     foreignKeyFor: [
-                        "author"
+                        "parentPost"
+                    ]
+                },
+                parentPost: {
+                    name: "parentPost",
+                    type: "Post",
+                    optional: true,
+                    attributes: [{ name: "@relation", args: [{ name: "name", value: ExpressionUtils.literal("PostReplies") }, { name: "fields", value: ExpressionUtils.array("Int", [ExpressionUtils.field("parentId")]) }, { name: "references", value: ExpressionUtils.array("Int", [ExpressionUtils.field("id")]) }] }],
+                    relation: { opposite: "replies", name: "PostReplies", fields: ["parentId"], references: ["id"] }
+                },
+                replies: {
+                    name: "replies",
+                    type: "Post",
+                    array: true,
+                    attributes: [{ name: "@relation", args: [{ name: "name", value: ExpressionUtils.literal("PostReplies") }] }],
+                    relation: { opposite: "parentPost", name: "PostReplies" }
+                }
+            },
+            idFields: ["id"],
+            uniqueFields: {
+                id: { type: "Int" }
+            }
+        },
+        Post1: {
+            name: "Post1",
+            baseModel: "Content",
+            fields: {
+                id: {
+                    name: "id",
+                    type: "Int",
+                    id: true,
+                    attributes: [{ name: "@id" }, { name: "@default", args: [{ name: "value", value: ExpressionUtils.call("autoincrement") }] }],
+                    default: ExpressionUtils.call("autoincrement")
+                },
+                type: {
+                    name: "type",
+                    type: "ContentType",
+                    originModel: "Content",
+                    isDiscriminator: true
+                },
+                post: {
+                    name: "post",
+                    type: "Post",
+                    attributes: [{ name: "@relation", args: [{ name: "fields", value: ExpressionUtils.array("Int", [ExpressionUtils.field("postId")]) }, { name: "references", value: ExpressionUtils.array("Int", [ExpressionUtils.field("id")]) }] }],
+                    relation: { opposite: "post1s", fields: ["postId"], references: ["id"] }
+                },
+                postId: {
+                    name: "postId",
+                    type: "Int",
+                    foreignKeyFor: [
+                        "post"
                     ]
                 }
             },
             idFields: ["id"],
             uniqueFields: {
-                id: { type: "String" }
+                id: { type: "Int" }
+            }
+        }
+    } as const;
+    enums = {
+        ContentType: {
+            name: "ContentType",
+            values: {
+                POST: "POST",
+                ARTICLE: "ARTICLE",
+                QUESTION: "QUESTION"
             }
         }
     } as const;

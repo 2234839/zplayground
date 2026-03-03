@@ -6,8 +6,30 @@ datasource db {
     url = 'file:./dev.db'
 }
 
-/// User model
 model User {
-    id       String @id @default(cuid())
+    id    Int    @id @default(autoincrement())
 }
 
+enum ContentType {
+    POST         
+    ARTICLE     
+    QUESTION
+}
+
+model Content{
+    id    Int  @id @default(autoincrement())
+    type ContentType
+    @@delegate(type)
+}
+
+model Post extends Content{
+  post1s Post1[]
+  parentId Int?
+  parentPost Post? @relation("PostReplies", fields: [parentId], references: [id])
+  replies Post[] @relation("PostReplies")
+}
+
+model Post1 extends Content{
+   post   Post @relation(fields: [postId], references: [id])
+   postId Int
+}
