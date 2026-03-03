@@ -158,4 +158,7 @@ This is a significant limitation that blocks common use cases:
 
 ### Reproduction Repository
 
-A minimal reproduction case is available. The schema in `zenstack/schema.zmodel` demonstrates the issue. Simply run `npx zenstack generate` to reproduce the error.
+A minimal reproduction case with working code is available at:
+**https://github.com/2234839/zplayground/tree/bug/delegate-self-relation-circular-dependency**
+
+The schema in `zenstack/schema.zmodel` demonstrates the issue. Simply run `npx zenstack generate` to reproduce the error.
