@@ -21,6 +21,10 @@ Self-referential relations are a common and essential pattern in database modeli
 
 ## Steps to Reproduce
 
+**Repository**: https://github.com/2234839/zplayground/tree/bug/delegate-self-relation-circular-dependency
+
+A minimal reproduction case is available in the above repository. The schema in `zenstack/schema.zmodel` demonstrates the issue.
+
 ### 1. Create a schema with `@@delegate` and self-referential relation
 
 ```zmodel
@@ -110,10 +114,3 @@ This is a significant limitation that blocks common use cases:
 - Organizational tools (employee hierarchies, department trees)
 - Forum software (posts with nested replies)
 - Any application combining polymorphism with hierarchical data
-
-### Reproduction Repository
-
-A minimal reproduction case with working code is available at:
-**https://github.com/2234839/zplayground/tree/bug/delegate-self-relation-circular-dependency**
-
-The schema in `zenstack/schema.zmodel` demonstrates the issue. Simply run `npx zenstack generate` to reproduce the error.
