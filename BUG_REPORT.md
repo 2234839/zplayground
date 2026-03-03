@@ -105,12 +105,3 @@ Post → (relation) → Post (self-reference detected as cycle)
 ```
 
 The topological sort algorithm detects this as a cycle and fails, even though self-referential relations are valid and should be handled specially (similar to how they work for regular models).
-
-### Impact
-
-This is a significant limitation that blocks common use cases:
-- Social media platforms (posts with comment/reply threads)
-- Content management systems (nested categories, pages)
-- Organizational tools (employee hierarchies, department trees)
-- Forum software (posts with nested replies)
-- Any application combining polymorphism with hierarchical data
