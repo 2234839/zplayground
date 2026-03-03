@@ -29,10 +29,6 @@ datasource db {
     url = 'file:./dev.db'
 }
 
-generator client {
-    provider = 'prisma-client-js'
-}
-
 enum ContentType {
     POST
     ARTICLE
