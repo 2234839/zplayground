@@ -5,7 +5,8 @@ import initSqlJs from 'sql.js';
 
 async function main() {
   const db = await seedDatabase();
-  db.user.findM;
+  const count =await db.user.count()
+  console.log(count)
 }
 main();
 
@@ -19,4 +20,5 @@ async function seedDatabase() {
 
   // push schema to the database (`$pushSchema` is for testing only)
   await db.$pushSchema();
+  return db
 }

@@ -6,16 +6,14 @@
     "zen:gen": "pnpm zen generate",
     "zen:dev": "zen migrate dev"
   },
-  "engines": {
-    "node": "22.x"
-  },
   "dependencies": {
-    "sql.js": "^1.14.0",
-    "tsx": "^4.21.0"
+    "sql.js": "^1.14.0", 
+    "tsx": "^4.21.0", 
+    "@zenstackhq/cli": "^3.4.2",
+    "@zenstackhq/orm": "^3.4.2"
   },
   "devDependencies": {
-    "@zenstackhq/cli": "^3.4.2",
-    "@zenstackhq/orm": "^3.4.2",
+    "@types/sql.js": "^1.4.9",
     "typescript": "5.2.2"
   }
 }
