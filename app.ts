@@ -6,14 +6,30 @@ import initSqlJs from 'sql.js';
 async function main() {
   const db = await seedDatabase();
   // out: 1
-  console.log(await db.user.count())
+  console.log(await db.user.count());
 
-  // out: { _count: { posts: 2 } }
-  console.log(await db.post.findFirst({
-    select: {
-      _count: { select: { post1s: true } }
-    }
-  }))
+  const post = await db.post.create({
+    data: {
+      replies: {
+        create: [{}, {}],
+      },
+    },
+    include: {
+      replies: true,
+    },
+  });
+  console.log('[post]', post);
+  console.log('======');
+  const posts_count = await db.post.findFirst({
+    where: { id: post.id },
+    include: {
+      _count: {
+        select: { replies: true },
+      },
+    },
+  });
+  console.log('[posts_count]', posts_count);
+
 }
 main();
 
@@ -28,17 +44,5 @@ async function seedDatabase() {
   // push schema to the database (`$pushSchema` is for testing only)
   await db.$pushSchema();
 
-  const user =
-  await db.post.create({
-    data:{
-      post1s: {
-        create: [
-          {},
-          {}
-        ]
-      }
-    }
-  })
-
-  return db
+  return db;
 }
