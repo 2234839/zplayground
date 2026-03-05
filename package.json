@@ -9,11 +9,11 @@
   "dependencies": {
     "sql.js": "^1.14.0", 
     "tsx": "^4.21.0", 
-    "@zenstackhq/cli": "^3.4.2",
-    "@zenstackhq/orm": "^3.4.2"
+    "@zenstackhq/cli": "^3.4.4",
+    "@zenstackhq/orm": "^3.4.4"
   },
   "devDependencies": {
     "@types/sql.js": "^1.4.9",
-    "typescript": "5.2.2"
+    "typescript": "5.9.3"
   }
 }

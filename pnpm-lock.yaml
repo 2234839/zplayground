@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@zenstackhq/cli':
-        specifier: ^3.4.2
-        version: 3.4.2(sql.js@1.14.0)(typescript@5.2.2)
+        specifier: ^3.4.4
+        version: 3.4.4(sql.js@1.14.0)(typescript@5.9.3)
       '@zenstackhq/orm':
-        specifier: ^3.4.2
-        version: 3.4.2(sql.js@1.14.0)(zod@4.3.6)
+        specifier: ^3.4.4
+        version: 3.4.4(sql.js@1.14.0)(zod@4.3.6)
       sql.js:
         specifier: ^1.14.0
         version: 1.14.0
@@ -25,8 +25,8 @@ importers:
         specifier: ^1.4.9
         version: 1.4.9
       typescript:
-        specifier: 5.2.2
-        version: 5.2.2
+        specifier: 5.9.3
+        version: 5.9.3
 
 packages:
 
@@ -245,8 +245,8 @@ packages:
   '@types/sql.js@1.4.9':
     resolution: {integrity: sha512-ep8b36RKHlgWPqjNG9ToUrPiwkhwh0AEzy883mO5Xnd+cL6VBH1EvSjBAAuxLUFF2Vn/moE3Me6v9E1Lo+48GQ==}
 
-  '@zenstackhq/cli@3.4.2':
-    resolution: {integrity: sha512-wH/HS3q+U2Ju1VH/g1w2MKqhdZGHogKkyCTtfq2RVNzBEnskjh1fAqgpBWsYnGgP9bvpLj5+LvMoYgO4GepTFw==}
+  '@zenstackhq/cli@3.4.4':
+    resolution: {integrity: sha512-X4tEaqtdwTQkHCto/D4/q0HbZQ3mF6Iibm7uA5w2AnB1qIIgKRpELbBwJZLMTPOJ1rjjaq4TLcy381Aw6E1hXQ==}
     engines: {node: '>=20'}
     hasBin: true
     peerDependencies:
@@ -261,14 +261,14 @@ packages:
       pg:
         optional: true
 
-  '@zenstackhq/common-helpers@3.4.2':
-    resolution: {integrity: sha512-HTGbWJDS9qdWH4XdKuueA87Cdu+FOsUZXygWDs7c2No1I1XC0lT8Rea6cVjKbiTb6PFlqDx8d7ME/YScEQ07iQ==}
+  '@zenstackhq/common-helpers@3.4.4':
+    resolution: {integrity: sha512-HS/B0uhyhzFoDamM/yQ4e7Zi/P/bYSTEa81YfIZ1b4TQB7vxNjO+CslpV/17XxpuzZl/758FfisJylztd+Jq4w==}
 
-  '@zenstackhq/language@3.4.2':
-    resolution: {integrity: sha512-s3d34nYUtvtwfz3uJ1M2VPN8WnHIHKY6eAAkxrnOV9d06edNVACjIkWDW7+4o6VvaciiKYURv+DuIRBDiamDUA==}
+  '@zenstackhq/language@3.4.4':
+    resolution: {integrity: sha512-KiAAgX46hApcfn8chGKDPflK6E+6AN7gLOERFvTKIIMN5zZ6/idiAS61AjYsbvugsrhk3FtqXnF3bn2YeLTBFA==}
 
-  '@zenstackhq/orm@3.4.2':
-    resolution: {integrity: sha512-bzKHe+wmpVI0poJp996okeWJKVfwlc5Lml5cJ5O2J1QYF5IGT3w/069LJMapVP70cKtqyzYeuB1zsa4WrnwtVg==}
+  '@zenstackhq/orm@3.4.4':
+    resolution: {integrity: sha512-0r0HDj5ZZK5TaXRuFGSmRKMoHhpHBiDu0qWSFY+ZyDtEjjOXnKsWSlReGsyt4kX4IqKsD1jH0cFVeMjONVseWA==}
     peerDependencies:
       better-sqlite3: ^12.5.0
       mysql2: ^3.16.1
@@ -285,14 +285,14 @@ packages:
       sql.js:
         optional: true
 
-  '@zenstackhq/schema@3.4.2':
-    resolution: {integrity: sha512-/OGcbO8nBusjr10pSocVE3KUoiZmV9NBrJEnM3mnbX6j2g0xRWSF43A227UukgWo9Oy1BXGeMl0Df/8J3531MA==}
+  '@zenstackhq/schema@3.4.4':
+    resolution: {integrity: sha512-VOnTaakDs5xgm4639kZLersRKyMay7h1vPvRxxmYDRU9faTvGgOgXKLlSrNdzt0pA12AM/4E2XXUBo+zNzaMeg==}
 
-  '@zenstackhq/sdk@3.4.2':
-    resolution: {integrity: sha512-YzEfhPMg8iBLG8VD7EzV9mXQfnoOGN1MLifMxTuJHGAmniMRP9ZeFy834O0YupWi0MhHbCX93uOcD4Xw6R2E5A==}
+  '@zenstackhq/sdk@3.4.4':
+    resolution: {integrity: sha512-sumwifkC1fCUqiUlDWIuscDKdqTXqIWsEXK+TuGTPgkH95WnoBq+tZ+4OIA+cm5z2DnkjdAJN8IdePl1VHdWTQ==}
 
-  '@zenstackhq/server@3.4.2':
-    resolution: {integrity: sha512-+EuRQyt5MkXWGm+3p8LrroLqVUhyM4fjVQ9oZuHJXSd/BRe6CLwNiKBYN6eNyrL1qVf9PWC4994hT7JQH1KYyw==}
+  '@zenstackhq/server@3.4.4':
+    resolution: {integrity: sha512-/rSMaLluK1uwMWYNKZF2NVELZ0f8OZtyYxAGTzkTJmS7amwYJJ7Yj2BVGQxzzcV0W35ofUyWeTMuEjin3yXBTA==}
     peerDependencies:
       '@sveltejs/kit': ^2.0.0
       elysia: ^1.3.0
@@ -321,8 +321,8 @@ packages:
       nuxt:
         optional: true
 
-  '@zenstackhq/zod@3.4.2':
-    resolution: {integrity: sha512-q3e9+JNBf7hV6FTXF2avzbpzNqqTJVPkh3aj7UXLGwoW3udjLH8rhFG8PC5pmUdO7kdP49UuAHRtMamqyPsgfQ==}
+  '@zenstackhq/zod@3.4.4':
+    resolution: {integrity: sha512-1ARS5WU3cmVvDq7VRVVawAvFXdZgKQHwf9KUNkVlvabIaVf79on/tNswKaRU6qSnfmbWG9Ea7rUHFVP2Fva7Iw==}
     peerDependencies:
       zod: ^4.0.0
 
@@ -1033,11 +1033,6 @@ packages:
     resolution: {integrity: sha512-OZs6gsjF4vMp32qrCbiVSkrFmXtG/AZhY3t0iAMrMBiAZyV9oALtXO8hsrHbMXF9x6L3grlFuwW2oAz7cav+Gw==}
     engines: {node: '>= 0.6'}
 
-  typescript@5.2.2:
-    resolution: {integrity: sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==}
-    engines: {node: '>=14.17'}
-    hasBin: true
-
   typescript@5.9.3:
     resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
     engines: {node: '>=14.17'}
@@ -1267,14 +1262,14 @@ snapshots:
       '@types/emscripten': 1.41.5
       '@types/node': 25.3.3
 
-  '@zenstackhq/cli@3.4.2(sql.js@1.14.0)(typescript@5.2.2)':
+  '@zenstackhq/cli@3.4.4(sql.js@1.14.0)(typescript@5.9.3)':
     dependencies:
-      '@zenstackhq/common-helpers': 3.4.2
-      '@zenstackhq/language': 3.4.2
-      '@zenstackhq/orm': 3.4.2(sql.js@1.14.0)(zod@4.3.6)
-      '@zenstackhq/schema': 3.4.2
-      '@zenstackhq/sdk': 3.4.2
-      '@zenstackhq/server': 3.4.2(express@5.2.1)(sql.js@1.14.0)(zod@4.3.6)
+      '@zenstackhq/common-helpers': 3.4.4
+      '@zenstackhq/language': 3.4.4
+      '@zenstackhq/orm': 3.4.4(sql.js@1.14.0)(zod@4.3.6)
+      '@zenstackhq/schema': 3.4.4
+      '@zenstackhq/sdk': 3.4.4
+      '@zenstackhq/server': 3.4.4(express@5.2.1)(sql.js@1.14.0)(zod@4.3.6)
       chokidar: 5.0.0
       colors: 1.4.0
       commander: 8.3.0
@@ -1287,7 +1282,7 @@ snapshots:
       mixpanel: 0.18.1
       ora: 5.4.1
       package-manager-detector: 1.6.0
-      prisma: 6.19.2(typescript@5.2.2)
+      prisma: 6.19.2(typescript@5.9.3)
       semver: 7.7.4
       terminal-link: 5.0.0
       ts-pattern: 5.9.0
@@ -1305,22 +1300,22 @@ snapshots:
       - supports-color
       - typescript
 
-  '@zenstackhq/common-helpers@3.4.2': {}
+  '@zenstackhq/common-helpers@3.4.4': {}
 
-  '@zenstackhq/language@3.4.2':
+  '@zenstackhq/language@3.4.4':
     dependencies:
-      '@zenstackhq/common-helpers': 3.4.2
+      '@zenstackhq/common-helpers': 3.4.4
       langium: 3.5.0
       pluralize: 8.0.0
       ts-pattern: 5.9.0
       vscode-languageserver: 9.0.1
 
-  '@zenstackhq/orm@3.4.2(sql.js@1.14.0)(zod@4.3.6)':
+  '@zenstackhq/orm@3.4.4(sql.js@1.14.0)(zod@4.3.6)':
     dependencies:
       '@paralleldrive/cuid2': 2.3.1
-      '@zenstackhq/common-helpers': 3.4.2
-      '@zenstackhq/schema': 3.4.2
-      '@zenstackhq/zod': 3.4.2(zod@4.3.6)
+      '@zenstackhq/common-helpers': 3.4.4
+      '@zenstackhq/schema': 3.4.4
+      '@zenstackhq/zod': 3.4.4(zod@4.3.6)
       cuid: 3.0.0
       decimal.js: 10.6.0
       json-stable-stringify: 1.3.0
@@ -1336,22 +1331,22 @@ snapshots:
     optionalDependencies:
       sql.js: 1.14.0
 
-  '@zenstackhq/schema@3.4.2':
+  '@zenstackhq/schema@3.4.4':
     dependencies:
       decimal.js: 10.6.0
 
-  '@zenstackhq/sdk@3.4.2':
+  '@zenstackhq/sdk@3.4.4':
     dependencies:
-      '@zenstackhq/common-helpers': 3.4.2
-      '@zenstackhq/language': 3.4.2
+      '@zenstackhq/common-helpers': 3.4.4
+      '@zenstackhq/language': 3.4.4
       langium: 3.5.0
       ts-pattern: 5.9.0
       typescript: 5.9.3
 
-  '@zenstackhq/server@3.4.2(express@5.2.1)(sql.js@1.14.0)(zod@4.3.6)':
+  '@zenstackhq/server@3.4.4(express@5.2.1)(sql.js@1.14.0)(zod@4.3.6)':
     dependencies:
-      '@zenstackhq/common-helpers': 3.4.2
-      '@zenstackhq/orm': 3.4.2(sql.js@1.14.0)(zod@4.3.6)
+      '@zenstackhq/common-helpers': 3.4.4
+      '@zenstackhq/orm': 3.4.4(sql.js@1.14.0)(zod@4.3.6)
       decimal.js: 10.6.0
       superjson: 2.2.6
       ts-japi: 1.12.1
@@ -1367,9 +1362,9 @@ snapshots:
       - pg
       - sql.js
 
-  '@zenstackhq/zod@3.4.2(zod@4.3.6)':
+  '@zenstackhq/zod@3.4.4(zod@4.3.6)':
     dependencies:
-      '@zenstackhq/schema': 3.4.2
+      '@zenstackhq/schema': 3.4.4
       decimal.js: 10.6.0
       zod: 4.3.6
 
@@ -1930,12 +1925,12 @@ snapshots:
     dependencies:
       parse-ms: 4.0.0
 
-  prisma@6.19.2(typescript@5.2.2):
+  prisma@6.19.2(typescript@5.9.3):
     dependencies:
       '@prisma/config': 6.19.2
       '@prisma/engines': 6.19.2
     optionalDependencies:
-      typescript: 5.2.2
+      typescript: 5.9.3
     transitivePeerDependencies:
       - magicast
 
@@ -2127,8 +2122,6 @@ snapshots:
       content-type: 1.0.5
       media-typer: 1.1.0
       mime-types: 3.0.2
-
-  typescript@5.2.2: {}
 
   typescript@5.9.3: {}
 
