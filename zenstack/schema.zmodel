@@ -23,13 +23,8 @@ model Content {
 }
 
 model Post extends Content {
-    post1s   Post1[]
     replies  Post[]  @relation("PostReplies")
     parentId Int?
     parent   Post?   @relation("PostReplies", fields: [parentId], references: [id])
 }
 
-model Post1 extends Content {
-    post   Post @relation(fields: [postId], references: [id])
-    postId Int
-}
