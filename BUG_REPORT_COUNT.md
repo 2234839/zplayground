@@ -14,7 +14,7 @@ The `_count` feature is essential for:
 
 ## Environment (please complete the following information)
 
-- **ZenStack version**: 3.4.2
+- **ZenStack version**: 3.4.4
 - **Database type**: SQLite (sql.js v1.14.0)
 - **Node.js version**: v24.3.0
 - **Package manager**: pnpm
